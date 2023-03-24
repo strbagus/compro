@@ -1,0 +1,30 @@
+---
+import Footer from "../components/footer.astro";
+import Nav from "../components/navigation.astro";
+const { title, route } = Astro.props;
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+    <title>{ title }</title>
+    <style is:global>
+      .unselectable {
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer */
+        user-select: none;
+      }
+      .ar-32 {
+        aspect-ratio: 3/2;
+      }
+    </style>
+	</head>
+  <body>
+    <Nav route={ route } />
+    <slot />
+    <Footer />
+	</body>
+</html>
