@@ -1,0 +1,14 @@
+---
+const { no, title, desc, color } = Astro.props;
+---
+<div class="px-3 -mt-32 flex-1">
+  <div class={["rounded-xl overflow-hidden shadow-lg h-full", color].join(' ')}>
+    <div class="bg-white h-52 w-52 rounded-full text-black text-right -mt-10 -ml-10 flex justify-center items-center">
+      <span class="text-6xl unselectable">{ no }</span>
+    </div>
+    <div class="py-10 px-3">
+      <h3 class="text-2xl font-medium">{ title }</h3>
+      <p class="text-sm mt-3">{ desc }</p>
+    </div>
+  </div>
+</div>
