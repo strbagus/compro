@@ -1,10 +1,12 @@
 ---
-const { route } = Astro.props;
+function isRoute(path){
+  return Astro.url.pathname == path ? 'active' : '';
+}
 ---
 <header class="bg-secondary fixed top-0 w-full shadow-lg z-40">
   <nav class="max-w-[1080px] mx-auto md:flex justify-between align-center">
     <div class="flex w-full md:w-auto align-center justify-between px-2 md:px-0 py-5">
-      <div class="text-xl italic text-primary mx-3 font-medium">
+      <div class="text-xl italic text-white mx-3 font-medium">
         <a href="/" class="flex items-center">
           <img src="/assets/logo.svg" alt="starblab icon logo" class="w-6 h-6 mr-1">
           starb<span class="text-white font-thin">lab</span>
@@ -16,11 +18,11 @@ const { route } = Astro.props;
     </div>
     <ul id="links" class="hidden md:flex items-center menu flex-col md:flex-row text-sm text-white">
 
-      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", route=="/"?"active":""].join(' ')}><a href="/">HOME</a></li>
-      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", route=="/portfolio"?"active":""].join(' ')}><a href="/portfolio">PORTFOLIO</a></li>
+      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", isRoute('/')].join(' ')}><a href="/">HOME</a></li>
+      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", isRoute('/portfolio')].join(' ')}><a href="/portfolio">PORTFOLIO</a></li>
 
-      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", route=="/about"?"active":""].join(' ')}><a href="/about">ABOUT</a></li>
-      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", route=="/contact"?"active":""].join(' ')}><a href="/contact">CONTACT</a></li>
+      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-2 md:my-0", isRoute('/about')].join(' ')}><a href="/about">ABOUT</a></li>
+      <li class={["mx-4 hover:text-primary duration-200 mt-4 mb-5 md:mb-2 md:my-0", isRoute('/contact')].join(' ')}><a href="/contact">CONTACT</a></li>
     </ul>
   </nav>
 </header>

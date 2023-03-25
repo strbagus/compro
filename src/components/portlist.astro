@@ -1,0 +1,15 @@
+---
+const { src, alt, title, subtitle, desc } = Astro.props;
+---
+<div class="flex flex-wrap md:items-center border-b border-primary py-5">
+  <div class="w-full md:w-3/5 px-4">
+    <div class="w-full relative" style="aspect-ratio: 3/2">
+      <img src={ src } alt={alt} draggable="false" loading="lazy" class="w-full h-full top-0 left-0 absolute object-cover">
+    </div>
+  </div>
+  <div class="px-4 w-full md:w-2/5 pt-3 md:pt-0">
+    <h2 class="text-4xl font-bold">{title}</h2>
+    <h3 class="text-3xl font-medium my-1 md:my-3">{ subtitle }</h3>
+    <p class="font-light">{ desc }</p>
+  </div>
+</div>

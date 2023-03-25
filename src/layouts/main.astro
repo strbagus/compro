@@ -1,15 +1,26 @@
 ---
 import Footer from "../components/footer.astro";
 import Nav from "../components/navigation.astro";
-const { title, route } = Astro.props;
+const { title, route, mTitle, mDesc, mTag } = Astro.props;
 ---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-    <title>{ title }</title>
+    <meta name="generator" content={Astro.generator} />
+    <meta name="title" content={ mTitle ? mTitle : 'Starlab is Company Profile Website' }>
+    <meta name="description" content={ mDesc ? mDesc : 'Startlab is template or layout company profile website for strbagus portfolio' }>
+    <meta name="author" content="strbagus">
+    <meta name="keywords" content="Starlab, strbagus, template, layout, company profile, website">
+    <meta name="tag" content={ mTag ? mTag : 'StarbLab' }>
+    <meta name="og:title" content={ mTitle ? mTitle : 'Starlab is Company Profile Website' }>
+    <meta name="og:description" content={ mDesc ? mDesc : 'Startlab is template or layout company profile website for strbagus portfolio' }>
+    <meta name="og:url" content={ Astro.url }>
+    <meta name="og:site_name" content="StarbLab Compro">
+    <meta name="og:image" content="/assets/image/eduardo-dutra.webp">
+
+    <title>{ title!=="StarbLab" ? title+" - StarbLab" : title }</title>
     <style is:global>
       .unselectable {
         -webkit-user-select: none; /* Safari */
@@ -23,7 +34,7 @@ const { title, route } = Astro.props;
     </style>
 	</head>
   <body>
-    <Nav route={ route } />
+    <Nav/>
     <slot />
     <Footer />
 	</body>
